@@ -21,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PBS.Business\PBS.Business.csproj" />
     <ProjectReference Include="..\PBS.Core\PBS.Core.csproj" />
+    <ProjectReference Include="..\PBS.Domain\PBS.Domain.csproj" />
+    <ProjectReference Include="..\PBS.Service\PBS.Service.csproj" />
   </ItemGroup>
 </Project>

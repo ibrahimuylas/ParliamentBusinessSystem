@@ -10,4 +10,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PBS.Core\PBS.Core.csproj" />
+  </ItemGroup>
 </Project>

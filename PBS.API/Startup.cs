@@ -11,6 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PBS.Core.Helper;
+using PBS.Core.Service;
+using PBS.Core.Service.External;
+using PBS.Service;
+using PBS.Service.External;
+using PBS.Toolkit;
 using Swashbuckle.AspNetCore;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -30,15 +36,6 @@ namespace PBS.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Auto Mapper Configurations
-            var mappingConfig = new MapperConfiguration(mc =>
-            {
-                //mc.AddProfile(new MappingProfile());
-            });
-
-            IMapper mapper = mappingConfig.CreateMapper();
-            services.AddSingleton(mapper);
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerGen(c =>
             {
@@ -55,6 +52,19 @@ namespace PBS.API
                                         .AllowAnyMethod();
                 });
             });
+
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                //mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddSingleton<IDateTimeHelper, DateTimeHelper>();
+
+            services.AddTransient<IBusinessService, BusinessService>();
+            services.AddTransient<IEventService, EventService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

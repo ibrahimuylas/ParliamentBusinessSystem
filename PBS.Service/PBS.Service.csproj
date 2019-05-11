@@ -13,5 +13,10 @@
   <ItemGroup>
     <ProjectReference Include="..\PBS.Core\PBS.Core.csproj" />
     <ProjectReference Include="..\PBS.Toolkit\PBS.Toolkit.csproj" />
+    <ProjectReference Include="..\PBS.Domain\PBS.Domain.csproj" />
+    <ProjectReference Include="..\PBS.Service.External\PBS.Service.External.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
   </ItemGroup>
 </Project>

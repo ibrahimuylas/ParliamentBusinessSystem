@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PBS.Service
+namespace PBS.Domain
 {
     public class Class1
     {

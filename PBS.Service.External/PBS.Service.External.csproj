@@ -12,7 +12,11 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\PBS.Core\PBS.Core.csproj" />
-    <ProjectReference Include="..\PBS.Service\PBS.Service.csproj" />
-    <ProjectReference Include="..\PBS.Toolkit\PBS.Toolkit.csproj" />
+    <ProjectReference Include="..\PBS.Domain\PBS.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

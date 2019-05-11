@@ -1,5 +1,5 @@
 ﻿using System;
-namespace PBS.Data.Models
+namespace PBS.Domain.Models
 {
     public class ErrorViewModel
     {
