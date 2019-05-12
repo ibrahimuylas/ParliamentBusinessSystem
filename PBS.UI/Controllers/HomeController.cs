@@ -19,10 +19,25 @@ namespace PBS.UI.Controllers
             var result = new List<EventModel>();
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync($"https://localhost:5001/api/GetEvents/{date}");
+                HttpResponseMessage response = await client.GetAsync($"https://localhost:5001/api/GetEvents/{TempData["DefaultDate"]}");
                 if (response.IsSuccessStatusCode)
                 {
                     result = JsonConvert.DeserializeObject<List<EventModel>>(await response.Content.ReadAsStringAsync());
+                }
+            }
+
+            return View(result);
+        }
+
+        public async Task<IActionResult> EventDetails(string date, int id)
+        {
+            var result = new EventDetailsModel();
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync($"https://localhost:5001/api/GetEventDetails/{date ?? DateTime.Now.Date.ToString("yyyy-MM-dd")}/{id}");
+                if (response.IsSuccessStatusCode)
+                {
+                    result = JsonConvert.DeserializeObject<EventDetailsModel>(await response.Content.ReadAsStringAsync());
                 }
             }
 

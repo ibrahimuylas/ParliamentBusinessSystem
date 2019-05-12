@@ -1,0 +1,61 @@
+﻿@model PBS.Domain.Models.EventDetailsModel
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<div class="">
+    <button class="btn btn-outline-info" onclick="history.go(-1);">Back to Events</button>
+    <h3 class="display-7 mt-3">
+        Events Details
+    </h3>
+    <hr />
+    <div class="form mb-4">
+        <div class="form-group row">
+            <label for="categoryTxt" class="col-3 col-form-label font-weight-bold">Category:</label>
+            <div class="col-5">
+                <input id="categoryTxt" type="text" class="form-control-plaintext" value="@Model.Category" />
+            </div>
+        </div>
+    </div>
+    <h4>
+        Members
+    </h4>
+    <hr />
+    <div class="mt-2">
+        @foreach (var item in Model.Members.OrderBy(x => x.SortOrder))
+        {
+            <div class="card mb-3" style="max-width: 600px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://i0.wp.com/w.media/wp-content/uploads/2018/01/placeholderhead.jpg" class="card-img" alt="Default profile icon" style="max-height: 200px;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.FullTitle</h5>
+                            <div class="form mb-2">
+                                <div class="form-group row">
+                                    <label for="partyTxt" class="col-5 col-form-label font-weight-bold pb-0">Party:</label>
+                                    <div class="col-5">
+                                        <input id="partyTxt" type="text" class="form-control-plaintext pb-0" value="@item.Party" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="memberFromTxt" class="col-5 col-form-label font-weight-bold pt-0">Member From:</label>
+                                    <div class="col-5">
+                                        <input id="memberFromTxt" type="text" class="form-control-plaintext pt-0" value="@item.MemberFrom" />
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text"><small class="text-muted">Last updated ...</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (Model.Members.Count() == 0)
+        {
+            <p class="card-text"><small class="text-muted">Members could not be found.</small></p>
+        }
+    </div>
+</div>
