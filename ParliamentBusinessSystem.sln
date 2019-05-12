@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBS.Domain", "PBS.Domain\PB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBS.Service.External", "PBS.Service.External\PBS.Service.External.csproj", "{5F58542B-DCB9-4919-8427-1F336D0BCA79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBS.Repository", "PBS.Repository\PBS.Repository.csproj", "{1EF046CA-4375-4B3F-98C0-6F96F397590C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,5 +51,9 @@ Global
 		{5F58542B-DCB9-4919-8427-1F336D0BCA79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F58542B-DCB9-4919-8427-1F336D0BCA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F58542B-DCB9-4919-8427-1F336D0BCA79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF046CA-4375-4B3F-98C0-6F96F397590C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF046CA-4375-4B3F-98C0-6F96F397590C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF046CA-4375-4B3F-98C0-6F96F397590C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF046CA-4375-4B3F-98C0-6F96F397590C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

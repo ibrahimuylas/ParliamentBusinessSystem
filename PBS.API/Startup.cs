@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using PBS.Core.Helper;
 using PBS.Core.Service;
 using PBS.Core.Service.External;
+using PBS.Core.Toolkit;
+using PBS.Core.Toolkit.Configuration;
 using PBS.Service;
 using PBS.Service.External;
 using PBS.Toolkit;
-using Swashbuckle.AspNetCore;
+using PBS.Toolkit.Configuration;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace PBS.API
@@ -63,9 +58,12 @@ namespace PBS.API
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddSingleton<IDateTimeHelper, DateTimeHelper>();
+            services.AddSingleton<IAPISettings, APISettings>();
+            services.AddSingleton<IPBSClient, PBSClient>();
 
             services.AddTransient<IBusinessService, BusinessService>();
             services.AddTransient<IEventService, EventService>();
+            services.AddTransient<IMemberService, MemberService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

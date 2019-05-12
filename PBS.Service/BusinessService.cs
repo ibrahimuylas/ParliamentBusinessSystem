@@ -11,15 +11,17 @@ using PBS.Domain.Models;
 
 namespace PBS.Service
 {
-    public class BusinessService : IBusinessService
+    public class BusinessService : ServiceBase, IBusinessService
     {
         private readonly IEventService _eventService;
-        private IMapper _mapper;
-        private IDateTimeHelper _dateTimeHelper;
+        private readonly IMemberService _memberService;
+        private readonly IMapper _mapper;
+        private readonly IDateTimeHelper _dateTimeHelper;
 
-        public BusinessService(IMapper mapper, IEventService eventService, IDateTimeHelper dateTimeHelper)
+        public BusinessService(IMapper mapper, IEventService eventService,IMemberService memberService, IDateTimeHelper dateTimeHelper)
         {
             _eventService = eventService;
+            _memberService = memberService;
             _mapper = mapper;
             _dateTimeHelper = dateTimeHelper;
         }
@@ -51,7 +53,7 @@ namespace PBS.Service
             {
                 foreach (var m in model.Members)
                 {
-                    var result = await _eventService.GetMemberByIdAsync(m.Id);
+                    var result = await _memberService.GetMemberByIdAsync(m.Id);
                     m.FullTitle = result.FullTitle;
                     m.MemberFrom = result.MemberFrom;
                     m.Party = result.Party?.Text;

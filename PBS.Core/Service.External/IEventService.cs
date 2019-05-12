@@ -11,7 +11,5 @@ namespace PBS.Core.Service.External
 
         Task<Event> GetEventByIdAsync(DateTime startDate, DateTime endDate, int id);
 
-        Task<Member> GetMemberByIdAsync(int id);
-
     }
 }
