@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PBS.Domain.Models.EventModel>
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<div class="">
+    <h1 class="display-7">
+        Welcome to Events
+    </h1>
+    <div class="form mb-2">
+        <div class="form-group row">
+            <label for="searchDate" class="col-1 col-form-label">Week</label>
+            <div class="col-5">
+                <input id="searchDate" type="date" class="form-control" value="@TempData["DefaultDate"]" />
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-info" onclick="location.href='@Url.Action("Events", "Home")?date=' + $('#searchDate').val()" >Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bg-info text-light text-center">
+            <div class="col border border-dark border-right-0 ">
+                Start Date Time
+            </div>
+            <div class="col border border-dark ">
+                End Date Time
+            </div>
+            <div class="col border border-dark border-left-0">
+                Description
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+        <a href="#" onclick="javascript:alert('hi')">
+            <div class="row bg-light text-dark">
+                <div class="col border border-dark border-right-0 text-center ">
+                    @item.StartDate.ToString("dd.MM.yyyy") @item.StartTime
+                </div>
+                <div class="col border border-dark text-center">
+                    @item.EndDate.ToString("dd.MM.yyyy") @item.EndTime
+                </div>
+                <div class="col border border-dark border-left-0">
+                    @item.Description
+                </div>
+            </div>
+        </a>
+        }
+    </div>
+</div>
