@@ -35,11 +35,30 @@ namespace PBS.Service
             return _mapper.Map<List<Event>, List<EventModel>>(events.ToList());
         }
 
-        public async Task<EventDetailsModel> GetEventDetailsAsync(int id)
+        public async Task<EventDetailsModel> GetEventDetailsAsync(string value, int id)
         {
-            await Task.FromException(new Exception());
+            var date = _dateTimeHelper.GetDateTime(value);
+            var startDate = _dateTimeHelper.GetFirstDayOfWeek(date);
+            var endDate = _dateTimeHelper.GetLastDayOfWeek(date);
 
-            return null;
+            var model = new EventDetailsModel();
+            var e = await _eventService.GetEventByIdAsync(startDate, endDate, id);
+            model.Category = e?.Category;
+
+            model.Members = _mapper.Map<List<EventMember>, List<MemberModel>>(e?.Members);
+
+            if (model.Members?.Count() > 0)
+            {
+                foreach (var m in model.Members)
+                {
+                    var result = await _eventService.GetMemberByIdAsync(m.Id);
+                    m.FullTitle = result.FullTitle;
+                    m.MemberFrom = result.MemberFrom;
+                    m.Party = result.Party?.Text;
+                }
+            }
+
+            return model;
         }
 
     }

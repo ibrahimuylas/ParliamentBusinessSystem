@@ -26,10 +26,10 @@ namespace PBS.API.Controllers
             return await _service.GetEventsAsync(date);
         }
 
-        [HttpGet("GetEventDetails/{id}")]
-        public async Task<EventDetailsModel> GetEventDetailsAsync(int id)
+        [HttpGet("GetEventDetails/{date}/{id}")]
+        public async Task<EventDetailsModel> GetEventDetailsAsync(string date, int id)
         {
-            return await _service.GetEventDetailsAsync(id);
+            return await _service.GetEventDetailsAsync(date, id);
         }
 
     }

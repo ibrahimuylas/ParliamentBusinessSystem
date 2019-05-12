@@ -10,6 +10,6 @@ namespace PBS.Core.Service
     {
         Task<IList<EventModel>> GetEventsAsync(string value);
 
-        Task<EventDetailsModel> GetEventDetailsAsync(int id);
+        Task<EventDetailsModel> GetEventDetailsAsync(string value, int id);
     }
 }

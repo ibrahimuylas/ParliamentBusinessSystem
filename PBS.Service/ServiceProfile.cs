@@ -10,6 +10,7 @@ namespace PBS.Service
         public ServiceProfile()
         {
             CreateMap<Event, EventModel>();
+            CreateMap<EventMember, MemberModel>();
 
         }
     }

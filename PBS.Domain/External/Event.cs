@@ -21,7 +21,7 @@ namespace PBS.Domain.External
         public bool HasSpeakers { get; set; }
         //public Committee Committee { get; set; }
         //public List<Tag> Tags { get; set; }
-        public List<Member> Members { get; set; }
+        public List<EventMember> Members { get; set; }
         //public List<Metadata> Metadata { get; set; }
         public string SummarisedDetails { get; set; }
     }

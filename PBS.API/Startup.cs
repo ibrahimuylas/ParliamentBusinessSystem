@@ -56,7 +56,8 @@ namespace PBS.API
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                //mc.AddProfile(new MappingProfile());
+                mc.AddProfile(new ServiceProfile());
+                mc.ValidateInlineMaps = false;
             });
 
             IMapper mapper = mappingConfig.CreateMapper();

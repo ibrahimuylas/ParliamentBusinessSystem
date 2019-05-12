@@ -9,6 +9,9 @@ namespace PBS.Core.Service.External
     {
         Task<IList<Event>> GetEventsAsync(DateTime startDate, DateTime endDate);
 
-        Task<Event> GetEventByIdAsync(int id);
+        Task<Event> GetEventByIdAsync(DateTime startDate, DateTime endDate, int id);
+
+        Task<Member> GetMemberByIdAsync(int id);
+
     }
 }
