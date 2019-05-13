@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
-using PBS.Core.Toolkit;
 
 namespace PBS.Toolkit
 {

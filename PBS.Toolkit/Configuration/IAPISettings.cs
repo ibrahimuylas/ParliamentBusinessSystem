@@ -1,5 +1,5 @@
 ﻿using System;
-namespace PBS.Core.Toolkit.Configuration
+namespace PBS.Toolkit.Configuration
 {
     public interface IAPISettings
     {

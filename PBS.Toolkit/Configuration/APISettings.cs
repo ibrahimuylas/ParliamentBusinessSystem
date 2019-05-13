@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
-using PBS.Core.Toolkit.Configuration;
 
 namespace PBS.Toolkit.Configuration
 {

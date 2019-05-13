@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace PBS.Core.Toolkit
+namespace PBS.Toolkit
 {
     public interface IPBSClient
     {

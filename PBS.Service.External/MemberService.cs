@@ -2,10 +2,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using PBS.Core.Service.External;
-using PBS.Core.Toolkit;
-using PBS.Core.Toolkit.Configuration;
 using PBS.Domain.External;
 using PBS.Toolkit;
+using PBS.Toolkit.Configuration;
 
 namespace PBS.Service.External
 {

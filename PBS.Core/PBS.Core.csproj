@@ -14,8 +14,6 @@
     <Folder Include="Service\" />
     <Folder Include="Service.External\" />
     <Folder Include="Helper\" />
-    <Folder Include="Toolkit\" />
-    <Folder Include="Toolkit\Configuration\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Business\Class1.cs" />
